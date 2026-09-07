@@ -1,165 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #222;
-        }
-       header {
-            background-color: #222;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            margin-top: 15px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mustafa | Web Developer Portfolio</title>
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background-color: white;
-        }
-         .hero h1 {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
+body{
+    font-family:Arial,sans-serif;
+    background:#080808;
+    color:#fff;
+    line-height:1.6;
+}
 
-        .hero p {
-            font-size: 20px;
-        }
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#111;
+    border-bottom:1px solid #2b2b2b;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-        section {
-            padding: 50px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+.logo{
+    font-size:28px;
+    font-weight:800;
+    color:#ff3131;
+}
 
-        section h2 {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        .skills {
-            text-align: center;
-        }
-        .skills span {
-            display: inline-block;
-            background-color: #222;
-            color: white;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-        }
-        .project {
-            background-color: white;
-            padding: 25px;
-            margin: 15px 0;
-            border-radius: 10px;
-        }
-       .project h3 {
-            margin-bottom: 10px;
-        }
-         footer {
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+.logo span{color:#fff;}
+
+nav{
+    margin-top:0;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:24px;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{color:#ff3131;}
+
+.hero{
+    min-height:85vh;
+    padding:80px 7%;
+    display:flex;
+    align-items:center;
+    background:
+      linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
+      radial-gradient(circle at top right,#ff3131 0,transparent 28%);
+}
+
+.hero-content{max-width:850px;}
+
+.badge{
+    display:inline-block;
+    color:#ff3131;
+    border:1px solid #ff3131;
+    padding:8px 16px;
+    border-radius:30px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.hero h1{
+    font-size:clamp(45px,8vw,82px);
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero h1 span{color:#ff3131;}
+
+.hero p{
+    max-width:700px;
+    color:#bbb;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:#ff3131;
+    color:#fff;
+    text-decoration:none;
+    padding:13px 25px;
+    border-radius:6px;
+    font-weight:bold;
+    margin-right:10px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#fff;
+    color:#111;
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    background:transparent;
+    border:1px solid #ff3131;
+}
+
+section{
+    padding:85px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:42px;
+    margin-bottom:8px;
+}
+
+.section-title h2 span{color:#ff3131;}
+
+.section-title p{color:#999;}
+
+.skills{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.skills span{
+    display:inline-block;
+    background:#151515;
+    border:1px solid #333;
+    color:#fff;
+    padding:12px 22px;
+    margin:7px;
+    border-radius:7px;
+    transition:.3s;
+}
+
+.skills span:hover{
+    border-color:#ff3131;
+    transform:translateY(-4px);
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.project{
+    background:#141414;
+    border:1px solid #292929;
+    padding:30px;
+    border-radius:12px;
+    transition:.35s;
+}
+
+.project:hover{
+    transform:translateY(-8px);
+    border-color:#ff3131;
+    box-shadow:0 15px 35px rgba(255,49,49,.12);
+}
+
+.project-icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.project h3{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.project p{
+    color:#999;
+    min-height:75px;
+    margin-bottom:20px;
+}
+
+.project a{
+    display:inline-block;
+    background:#ff3131;
+    color:#fff;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.project a:hover{
+    background:#fff;
+    color:#111;
+}
+
+.about{
+    background:#111;
+}
+
+.about-box{
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+}
+
+.about-box p{
+    color:#aaa;
+    font-size:17px;
+    margin-bottom:15px;
+}
+
+.contact-box{
+    max-width:750px;
+    margin:auto;
+    text-align:center;
+    background:#141414;
+    border:1px solid #292929;
+    border-radius:12px;
+    padding:40px;
+}
+
+.contact-box p{
+    color:#bbb;
+    margin:10px 0;
+}
+
+.contact-box a{
+    color:#ff3131;
+    text-decoration:none;
+}
+
+footer{
+    background:#050505;
+    border-top:1px solid #222;
+    text-align:center;
+    padding:30px 20px;
+    color:#777;
+}
+
+footer span{color:#ff3131;}
+
+@media(max-width:700px){
+    header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    nav a{
+        margin:0 7px;
+        font-size:14px;
+    }
+
+    .hero{
+        min-height:75vh;
+        padding:60px 5%;
+    }
+
+    section{padding:65px 5%;}
+
+    .projects{grid-template-columns:1fr;}
+
+    .project p{min-height:auto;}
+
+    .contact-box{padding:28px 20px;}
+}
 </style>
 </head>
+
 <body>
-    <header>
-        <h1>Mustafa</h1>
+
+<header>
+    <div class="logo">MUSTAFA<span>.</span></div>
+
     <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-    <section id="about">
-        <h2>About Me</h2>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="badge">I AM MUSTAFA</div>
+        <h1>WELCOME TO <span>MY PORTFOLIO</span></h1>
+        <p>
+            Hello! My name is Mustafa. I am learning Web Development
+            and building websites with HTML, CSS and JavaScript.
+            This portfolio shows my projects and my progress.
+        </p>
+
+        <a href="#projects" class="btn">View My Projects</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="section-title">
+        <h2>ABOUT <span>ME</span></h2>
+        <p>Learn more about me and my goal.</p>
+    </div>
+
+    <div class="about-box">
         <p>
             Hello! My name is Mustafa. I am learning Web Development.
             I am currently learning HTML and CSS, and I want to become
             a professional Web Developer in the future.
         </p>
-    </section> <div class="hero">
-        <h1>Hi, I'm Mustafa 👋</h1>
-        <p>I'm learning Web Development.</p>
+        <p>
+            I enjoy creating attractive websites and improving my coding
+            skills by building real projects.
+        </p>
     </div>
-     <section id="skills">
-        <h2>My Skills</h2>
-<div class="skills">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-        </div>
-    </section>
+</section>
 
-    <section id="projects">
-        <h2>My Projects</h2>
+<section id="skills">
+    <div class="section-title">
+        <h2>MY <span>SKILLS</span></h2>
+        <p>Technologies I am learning.</p>
+    </div>
+
+    <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Responsive Design</span>
+        <span>GitHub Pages</span>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="section-title">
+        <h2>MY <span>PROJECTS</span></h2>
+        <p>Click a button to open my websites.</p>
+    </div>
+
+    <div class="projects">
 
         <div class="project">
-            <h3>🚲 Cycle Website</h3>
+            <div class="project-icon">🚲</div>
+            <h3>Cycle Website</h3>
             <p>
-                A simple website about cycles made using HTML and CSS.
+                A bicycle website made with HTML and CSS,
+                featuring cycle information and a clean layout.
             </p>
             <a href="cycle.html">View Project</a>
         </div>
-         <div class="project">
-            <h3>🌸 Perfume Website</h3>
+
+        <div class="project">
+            <div class="project-icon">🌸</div>
+            <h3>Perfume Website</h3>
             <p>
-                A simple perfume website with products and information.
+                A perfume website with product sections,
+                information and an attractive design.
             </p>
             <a href="prefuem.html">View Project</a>
         </div>
+
         <div class="project">
-            <h3>💻 My Portfolio</h3>
+            <div class="project-icon">💻</div>
+            <h3>My Portfolio</h3>
             <p>
-                This portfolio website shows my skills and projects.
+                This portfolio website presents my skills,
+                projects and my journey in web development.
             </p>
+            <a href="#home" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">You Are Here</a>
         </div>
-        <div class="project">
-    <h3>🛍️ My Shop</h3>
-    <p>
-        A simple online shop website with products.
-    </p>
-    <a href="shop.html">View Shop</a>
-</div>
-        <div class="project">
-    <h3>🛍️ car website </h3>
-    <p>
-        A simple online shop website with products.
-    </p>
-    <a href="c3.html">View Shop</a>
-</div>
-    </section>
-    <section id="contact">
-        <h2>Contact Me</h2>
-       <P>03182714233 </p>
 
-        <p>mustafasheik720@gmail.com</p>
-    </section>
+        <div class="project">
+            <div class="project-icon">🛒</div>
+            <h3>Online Store</h3>
+            <p>
+                A simple online shopping website made using
+                HTML and CSS.
+            </p>
+            <a href="shop.html">View Store</a>
+        </div>
 
-    <footer>
-        <p>© 2026 Mustafa - Web Developer</p>
-    </footer>
+        <div class="project">
+            <div class="project-icon">🚗</div>
+            <h3>Mustafa Cars</h3>
+            <p>
+                A modern car website featuring luxury cars,
+                sports cars, categories and a professional layout.
+            </p>
+            <a href="c3.html">View Cars</a>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <div class="section-title">
+        <h2>CONTACT <span>ME</span></h2>
+        <p>Let's connect.</p>
+    </div>
+
+    <div class="contact-box">
+        <p><strong>Phone:</strong> 03182714233</p>
+        <p><strong>Email:</strong> <a href="mailto:mustafasheik720@gmail.com">mustafasheik720@gmail.com</a></p>
+        <br>
+        <a href="mailto:mustafasheik720@gmail.com" class="btn">Send Email</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 <span>Mustafa</span> — Web Developer Portfolio</p>
+</footer>
+
 </body>
 </html>
