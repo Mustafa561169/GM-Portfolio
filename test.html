@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple products</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #050505, #11111f, #2b0718);
+    color: white;
+}
+
+nav {
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: (135deg, #050505, #11111f, #2b0718);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid #e5e5e5;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Apple logo */
+
+nav img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+/* Navigation list */
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    list-style: none;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0071e3;
+}
+
+
+/* =====================================================
+   APPLE PRODUCTS MAIN SECTION
+   HTML: .apple-products
+===================================================== */
+
+.apple-products {
+    width: 100%;
+    min-height: 650px;
+
+    padding: 45px 5%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1.25fr 1fr;
+
+    gap: 25px;
+
+    align-items: stretch;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #ffffff 0%,
+            #f5f5f7 50%,
+            #e8e8ed 100%
+        );
+}
+
+
+/* =====================================================
+   IPHONE + WATCH CARDS
+   HTML: .apple-card
+===================================================== */
+
+.apple-card {
+    min-height: 600px;
+
+    padding: 45px 35px;
+
+    border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    overflow: hidden;
+
+    position: relative;
+
+    color: white;
+
+    background-size: cover;
+    background-position: center;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.apple-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.22);
+}
+
+
+/* dark overlay */
+
+.apple-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.05)
+        );
+
+    z-index: 0;
+}
+.saad {
+    color:white  ;
+    text-align: center;
+}
+
+
+/* Card content above overlay */
+
+.apple-card span,
+.apple-card h2,
+.apple-card p,
+.apple-card a {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =====================================================
+   IPHONE CARD
+   HTML: .iphone-card
+===================================================== */
+
+.iphone-card {
+    background-image:
+        url("https://images.unsplash.com/photo-1592286927505-2fd6f00d7c8b?auto=format&fit=crop&w=1200&q=80");
+}
+
+.iphone-card span {
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    color: #bdbdbd;
+
+    margin-bottom: 10px;
+}
+
+.iphone-card h2 {
+    font-size: 48px;
+
+    line-height: 1;
+
+    margin-bottom: 18px;
+}
+
+.iphone-card p {
+    color: #e5e5e5;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+.iphone-card a {
+    width: fit-content;
+
+    color: white;
+
+    text-decoration: none;
+
+    background: #0071e3;
+
+    padding: 12px 22px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.iphone-card a:hover {
+    background: #005bb5;
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   MACBOOK CENTER CARD
+   HTML: .apple-macbook
+===================================================== */
+
+.apple-macbook {
+    min-height: 600px;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 55px 45px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.75)
+        ),
+        url("https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1400&q=80");
+
+    background-size: cover;
+
+    background-position: center;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.18);
+
+    transition: 0.4s ease;
+}
+
+.apple-macbook:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 30px 75px rgba(0, 0, 0, 0.25);
+}
+
+
+/* MacBook text */
+
+.macbook-text {
+    max-width: 600px;
+}
+
+.macbook-text span {
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    color: #ddd;
+}
+
+.macbook-text h2 {
+    font-size: 65px;
+
+    line-height: 1;
+
+    margin: 12px 0 20px;
+}
+
+.macbook-text p {
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #eeeeee;
+
+    margin-bottom: 25px;
+}
+
+.macbook-text a {
+    display: inline-block;
+
+    background: white;
+
+    color: #1d1d1f;
+
+    padding: 12px 23px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.macbook-text a:hover {
+    background: #0071e3;
+
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   APPLE WATCH CARD
+   HTML: .watch-card
+===================================================== */
+
+.watch-card {
+    background-image:
+        url("https://images.unsplash.com/photo-1551816230-ef5deaed4a26?auto=format&fit=crop&w=1200&q=80");
+}
+
+.watch-card span {
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    color: #ddd;
+
+    margin-bottom: 10px;
+}
+
+.watch-card h2 {
+    font-size: 42px;
+
+    line-height: 1.05;
+
+    margin-bottom: 18px;
+}
+
+.watch-card p {
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #eeeeee;
+
+    margin-bottom: 25px;
+}
+
+.watch-card a {
+    width: fit-content;
+
+    padding: 12px 22px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #1d1d1f;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.watch-card a:hover {
+    background: #0071e3;
+
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   PRODUCTS SECTION
+   HTML: .products
+===================================================== */
+
+.products {
+    width: 100%;
+
+    padding: 80px 6%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+
+    background:
+        linear-gradient(
+            180deg,135deg, #050505, #11111f, #2b0718
+        
+        );
+}
+
+
+/* =====================================================
+   PRODUCT CARD
+   HTML: .card
+===================================================== */
+
+.card {
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 520px;
+
+    border: 1px solid #e8e8e8;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.07);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 25px 55px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
+.card > img {
+    width: 100%;
+
+    height: 270px;
+
+    object-fit: contain;
+
+    padding: 10px;
+
+    margin-bottom: 15px;
+
+    transition: 0.4s ease;
+}
+
+.card:hover > img {
+    transform: scale(1.06);
+}
+
+
+/* =====================================================
+   CARD CONTENT
+   HTML: .card-content
+===================================================== */
+
+.card-content {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+}
+
+.card-content h2 {
+    font-size: 23px;
+
+    line-height: 1.25;
+
+    color: #1d1d1f;
+
+    margin-bottom: 12px;
+}
+
+.card-content p {
+    font-size: 15px;
+
+    line-height: 1.65;
+
+    color: #6e6e73;
+
+    margin-bottom: 15px;
+
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    font-size: 20px;
+
+    color: #1d1d1f;
+
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   BUY NOW BUTTON
+   Your HTML uses plain <button>
+===================================================== */
+
+.card-content button {
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    padding: 14px 20px;
+
+    border-radius: 30px;
+
+    background: #0071e3;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card-content button:hover {
+    background: #005bb5;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 113, 227, 0.3);
+}
+
+.card-content button:active {
+    transform: scale(0.97);
+}
+
+
+/* =====================================================
+   FOOTER
+   HTML: .footer
+===================================================== */
+
+.footer {
+    width: 100%;
+
+    padding: 60px 7% 35px;
+
+    text-align: center;
+
+    background: #1d1d1f;
+
+    color: white;
+}
+
+.footer h2 {
+    font-size: 35px;
+
+    margin-bottom: 25px;
+}
+
+.footer p {
+    color: #aaa;
+
+    font-size: 16px;
+
+    margin: 10px 0;
+}
+
+.footer a {
+    color: #2997ff;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .apple-products {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .apple-macbook {
+        grid-column: 1 / -1;
+
+        min-height: 500px;
+
+        order: -1;
+    }
+
+    .apple-card {
+        min-height: 520px;
+    }
+
+    .products {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .macbook-text h2 {
+        font-size: 55px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    nav {
+        height: auto;
+
+        min-height: 65px;
+
+        padding: 12px 5%;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+    }
+
+    nav img {
+        width: 38px;
+        height: 38px;
+    }
+
+    nav ul {
+        gap: 14px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    nav ul li a {
+        font-size: 12px;
+    }
+
+
+    /* Apple main section */
+
+    .apple-products {
+        grid-template-columns: 1fr;
+
+        padding: 25px 5%;
+
+        gap: 20px;
+    }
+
+    .apple-macbook {
+        grid-column: auto;
+
+        min-height: 500px;
+
+        padding: 35px 25px;
+
+        order: 0;
+    }
+
+    .apple-card {
+        min-height: 500px;
+
+        padding: 35px 25px;
+    }
+
+    .iphone-card h2 {
+        font-size: 40px;
+    }
+
+    .watch-card h2 {
+        font-size: 38px;
+    }
+
+    .macbook-text h2 {
+        font-size: 48px;
+    }
+
+    .macbook-text p {
+        font-size: 15px;
+    }
+
+
+    /* Products */
+
+    .products {
+        grid-template-columns: 1fr;
+
+        padding: 55px 5%;
+
+        gap: 22px;
+    }
+
+    .card {
+        min-height: auto;
+
+        padding: 22px;
+    }
+
+    .card > img {
+        height: 250px;
+    }
+
+    .card-content h2 {
+        font-size: 22px;
+    }
+
+
+    /* Footer */
+
+    .footer {
+        padding: 45px 5% 30px;
+    }
+
+    .footer h2 {
+        font-size: 30px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    nav {
+        justify-content: center;
+    }
+
+    nav ul {
+        width: 100%;
+
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 11px;
+    }
+
+    .apple-card,
+    .apple-macbook {
+        min-height: 450px;
+
+        border-radius: 22px;
+    }
+
+    .macbook-text h2 {
+        font-size: 40px;
+    }
+
+    .iphone-card h2 {
+        font-size: 35px;
+    }
+
+    .watch-card h2 {
+        font-size: 33px;
+    }
+
+    .card > img {
+        height: 220px;
+    }
+}
+ </style> 
+</head>
+<body>
+       <div>
+       <nav>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFSj8hbbhsowD0yu0rvpt4_2U2h-2TfLEqlyoIl4vdhg&s=10" alt="">
+        
+        <ul>
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="">About Us</a>
+            </li>
+            <li>
+                <a href="">Our Services</a>
+            </li>
+            <li>
+                <a href="">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+    <section class="apple-products">
+
+    <div class="apple-card iphone-card">
+        <span>APPLE</span>
+        <h2>iPhone</h2>
+        <p>
+            Powerful performance, beautiful design and
+            everything you need in one amazing phone.
+            iPhone — “Designed to be more powerful, more personal, 
+            and more innovative.”
+        </p>
+        <a href="#">Learn More →</a>
+    </div>
+    <div class="apple-macbook">
+        <div class="macbook-text">
+            <span>APPLE</span>
+            <h2>MacBook</h2>
+            <p>
+                Powerful. Beautiful. Professional.
+                MacBook — “Powerful performance, elegant design, and everything
+                 you need to create.”
+            </p>
+            <a href="#">Learn More →</a>
+        </div>
+    </div>
+    <div class="apple-card watch-card">
+        <span>APPLE</span>
+        <h2>Apple Watch</h2>
+        <p>
+            Stay connected and make your everyday
+            life smarter.**Apple Watch  Stay connected, stay active, 
+            and keep everything you need right on your wrist
+
+        </p>
+        <a href="#">Learn More →</a>
+    </div>
+</section>
+ <h2 class="saad"><i><u> iphone </u></i></h2>
+    <p class="saad">
+        Apple is a world-leading technology company that has revolutionized the 
+        smartphone industry with its innovation and premium quality. It is famous 
+        for its powerful iPhones, elegant designs, and advanced technology. iPhones 
+        offer excellent cameras, fast performance, and a smooth user experience. 
+        Apple focuses on security, quality, and customer satisfaction. Every new 
+        iPhone introduces exciting features and improvements. Apple continues to 
+        shape the future of technology with creativity and innovation. 
+    </p>
+    <div class="products">
+    <div class="card">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk8BDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAIoA9gMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAABAAIDBAUGB//EADwQAAEDAgQDBAgEBQQDAAAAAAEAAgMEEQUSITFBUWETMnGBBhQiM1Jyc5FCscHRI5KTofBDU2KDFSVE/8QAGgEAAwEBAQEAAAAAAAAAAAAAAAECAwQFBv/EACYRAQACAgICAgIBBQAAAAAAAAABAgMREjEEIRNBBTJSFCJCUZH/2gAMAwEAAhEDEQA/AKWKTyNxWW7jZrtBdWhjTw0EEkgKjjlhis1uaqRgucGjUleZN5rM6Gnb4JiHrUQdx2K3AdFzvo/TCGBt9CdSuhGwXbimZr7MUkEloYpIJIAoXQKF0AiVWmPsqw7ZVZNXAG9iUimdezIg559lpPgFabE/4HfZZmK+k9BgRjiqXvzPFxHE25tzKvYZjNPilG2po5S6N2muhB5EJ8UfJ6WOzfbuO+yQY/4HfZF08osQ82Q9Yl+Mp8UzlPDXfCfsnBrvhP2UJqJPiKHrEvxFPiXypjcbiyB1Ci7d53JPQ7IxvEjMzfNKY0qt+TjvS5nstdyK5mNdj6VxZqRx5LjWFej407o87yY/vlZaiU1hTiuyHFPZpQKJTSmcGu2UROqkcoXbpS1qlBTrqEFPBREiYPukm3SQnTaxijmnxiURhOpqN1Kc0ou5diaSIzvfYZj0WZiVGXgiPjxXyt8X299UgxJsEjWHiuipZu1YDdcg/DKhjr95beEmZotILWVY7z1KYbiSaCbI3XSoUkLpXTAoJXSSBpVabR8fzK0VWn78Xzpwi/6uQ9LMBqa+ujq6YtJyBrg69v7LU9FsMfheGuilcSXm58+SwPTfFK6nxGGngnkhh7PMMhsXHxWz6FV1TXYResc55a4hrzu4KmXvi6MAMjyAEBugBRStZpFz5oBOET2KCKCZEN03D/cyfVcnKLDWkRTG97zOU26Vj/ZR9IYs9I8dF5+3Ry9LxZmend4LzeZvZ1D2ngV2eLPrTDy49pWJ5TItVIQu+Hmz2YU0p9ieCBjcVRxKIqB+6tGJyjdTuKUtK2hA0p4KPYPCXZuHBTG1zMCkhldySTJ6BWYs2mxB0LzZSQYjDOQLgrnPSoWxQW4tWdQyyQztLSdSvlZyzFtS916IGRuF0WMjB03WN/5LJAD0UNHjGeU30F1r8tSdIioIJxI3RTLeAKSCSAKSCKABVao95D1erKrVXvIPn/ROEX/VSr8MhrLdq1rrcHNDh/dTUlMKWMRxhoA6Kykrc4a8U5BFMiQRQQCUGGn2KjX/AFnfop1Bhp/hzi1rTO/RTbpeP9k1W3PCQvOsZi7LEHdV6RILsIXEelFPlkEoGgK28a2rF5Vd12yIVZABVKNymEtuK9WJePes7W2sCfkaqrZ+qeJ+qrlDGa2WMjUsjVEJhzThKOae0zEndk3kgYGlISDmnB45o2W7IzTNSUucc0kxys2PSHDn1NeHi9gFmmmZTgEDoV29VC11zZctisBbJlA0PHkvk8mP3t9bpmzTPLS1lyFmPe9j7BxC2KdjWsIO45qhPCJKpoaOKxtT2mXWYBI91OwvN9FtrLwmLs4W+C0wu2nqoOSQSVg5JBFAJV6i2eH51OoKjvw/OnCL9CkgkrhziEU1zg0Ek2A3KpyYjCHxiOSJzHE5n5xZtkxpeQQDgWgtIIPEJIIVBhzQI5iOMzj+SnUFB7qT6rlNmmPtaKxscohUQOFrrYJUcgDhYhTWeM7bWryjTy6ojfSzFkgI5KLtl3GLYRHUNccoXH4hhElIS4O05Lup5ETDhv4+pQCXqnCU81nGXK6x3CcJltGSGU4WkJjzThMeazhN1ThN1VRkROFoic804Tnms4S9U4SqoyInC0O3KSo9r1QT5l8L2V4usfFYrxOAC3slws6vhztK8Kz34cl2BcGu62UlJQPFSXuF2hX3MbE4Zua0YY29nmHJZcdiYTUzQ1lgFMs4VGWSyvMdmaFrEplJdJC6V1ZHJIXSugHKvUd6H6gU6r1Peh+oE4Tbo5JFJW5lLFWOfh0zW32BNuV9VzbGNvoF2BAIsdlVbh9GP/nZe97qolUTpLTuY+BjohlYRoLWspErADRJJIqCg91J9VynVeh91J9V35qLLx9rJTHFEprlDoQPduFjYxEyWMgC7itOsl7NhcsqKU1Dz4pwNMCLAO0cXObunyejwA7oXVta1jbAKN5T5yXGHFz4GWAkXFllSU0jJcoXoFRbsnXHBcvKGurNuKuMtkzjhnsw+YszXUbqWoabWuuxghZ2LfZQdSxE6tCqM1kzhhx/YVA/Ckuu9Th5JJ/PYvgh6MzZVqpuhU7DooazuGy5LTp11hyONVIhI8VcoK5r6YajZc56S9r6wWgEjdV8OqnQtyOdvsuf5JiU29S6d8rO3ButCnlBGiwKWN0zg4uuVswxlm5WtSaI1F0VFGbtUi2gjrpJoRumQ3UFR3ofqBTXUFT34fqBNN+j7opt0VbmJJJJBkkkkgCq1D7qT6rlZVSjeGxyA/7rvzU26Xj7WSmFIyt5qN0rQN1Ddl4xLlicquFNuAUzGZg42HNSYbI1se3BBtF5UDik+dvJQOqG8v7oI2qP8F3guY3rdOa36uf+C6w4c1zjJL1m3FEB00PuWpxUEcxETdEjMUwmSUHbFJAegtNlHNq03TrqOYjKVjftvXpzGMUzHSl1uC5qopXNIyjW+i6jE35pQG8FSjphM4PIWfHabQioM8LMxBJC04KkyPHBWY6doiPs6qs2HJPcCyrUxKNNSLuqRRxd1Put4GpOSTDI0buH3TTUwjvSs+6Z/HefpKoKj3kP1EPXacadsz7qF9XDNPCyOQOd2myYvhyRWZmFtJBFW4hSQSBQBSSSQCWUyUMMgd8bvzWoN1zGIetGok9XLbZjubcVNm2DHa9tVjbTNQzqoZKloaSLrAkOK8Aw+DlB/wC1Js6LT5lOpdn9Nmj/ABlPiEuecXOitUtQ1seyxqumxA+16u8noqRfiUYsaeUAf8UaRbFkjuHTvqgoXVQ6Ll31dUO81w8QVCayc7lGmcxMdulqqkGI2ssWKVoqL31uqbqmVzCMyrNe/Pe6ZOubVgRgZggasfEFzXbS2HtFAyyfEgOjNY340lzfaP8AiSQHt9Tq8DMQLHZZ1TUBn+tp1KwZa2aaNznyuOvEqKVzmx53EakbJTimZ7ezT8dFfV7L1RKx+Y3+yYytiibla0m3NVHygsk0sRuearB5VfFDrw/j8X3DWdjEn4I2jx1UD8Qneb3aPAKhm/yyAdroq4Q6q+Hhr1VedXVBHviPBRGomefald91XLwdLIF4HBPUNYxUjqEpkJ7ziUMw6qB0g5JrpH8vJGmkVhZzgcSrmEvBxCPUbrFeXkk3ulDUyUlQydtyWG9uYRMOfy8fPBasf6d+lZVKPEaWthEtPM1wO4vqOhCs5hzUvippMTqTrI2Tc45pZhzQOJ1krJocOaOYW3QNDZcpiEgZWSDNYXP5rfr8RpqCB0s8gFtm31ceQXGmZ9TK+Q7vJJHLonD2Pw+Kflm+vWlwSOPFPbI7mqzL8d1Ky99b26qn0kxCftXc0s7uajG+qII5IRqBIa7drT5KJ9HSvHtQxnyUoIHBK4vshM0rPcKUmD4e/eG3ymyqyejdG4/w5pWed1sX1QHEckahhbxcNu6wwpPRx491Utd8wsqkuCV0VyIg8D4Cup15pbHilxhz3/G4Z69OIkgliNpIntPVpSXcEkjXUdRdJLg55/Ex9WQxiMsc178uuinc+F7bF40VDkkr09m3jRad7WXGFsTgx1y5V7+Sb+JOO/l+qGlcfCO9kCTtujcAAWQGwPG6bNo9yFaOLtdQEM/RR/umnZBxWEhf0Sz2UfBFuu6D4QdfonHKdHDTwUY2d4ojuf5ySLiYaalJzGFt+JAt+SPqtP8AAf5j+6k/CnjY/wCcUaZz4+P7iEIoobd1387v3RFFFbRr/wCo791MzfyTz3PIpaRODH/GEAoYuIcP+x37oighuD7f9R37q0O7fin8R5I0icOP+Mf8VG0NM12YRAv5k3U4aAAAA3oE48fEIHa//FNdaxXqCIFtEiLH9UATz5/oiN/NBl0BR6eaJ0A8UB3h4hAFL734BI/ohwHghJwOt+SV9E07tS/EfFv5pno69xuj56BA+7CQPs+QQUnAfZJK1735pJE//9k=" alt="">
+    <div class="card-content">
+    <h2>iphone 11</h2>
+    <P>
+    iPhone 11 owerful performance, stunning camera, and timeless design.
+    iPhone 11  Simple, powerful, and reliable.
+    </P>
+    <h3>prise: 1200$</h3>
+    <button> buy now</button>  
+    </div>
+    </div>
+     <div class="card">
+    <img src="https://mobilemall.pk/public_html/images/product/product_1603964261iphone-12-white-price-in-pakistan-(1).png" alt="">
+    <div class="card-content">
+    <h2>iphone 12</h2>
+    <P>
+    iPhone 12 owerful performance, stunning camera, and timeless design.
+    iPhone 12  Simple, powerful, and reliable.
+    </P>
+    <h3>prise: 1500$</h3>
+    <button> buy now</button>  
+    </div>
+    </div>
+    <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdyaLBt_xg5PYBJhnLq4ZZJ9l1TC0gm6CQPQ9hKDuZWA&s=10" alt="">
+    <div class="card-content">
+    <h2>iphone 13</h2>
+    <P>
+      iPhone 13 Powerful performance, stunning camera, and a beautiful design.
+      iPhone 13  More power. More style. More possibilities.
+    </P>
+    <h3>prise: 1800$</h3>
+    <button> buy now</button>  
+    </div>
+    </div>
+    <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5jcHViApF44CnFDcL2hIzsmFmuM7yXEivjRD7Ws3OjA&s=10" alt="">
+    <div class="card-content">
+    <h2>iphone 14 </h2>
+    <P> iPhone 14 Elegant design, powerful performance, and an incredible camera.
+        iPhone 14  Designed to impress. Built to perform.
+</P>
+    <h3>prise: 2000$</h3>
+    <button> buy now</button>  
+    </div>
+    </div>
+    <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWasN8c_5p1KFPW_l8-NPJHrJaNlgAVWDZiV7C4JyXCg&s=10" alt="">
+    <div class="card-content">
+    <h2>iphone 15 </h2>
+    <P> iPhone 15 Elegant design, powerful performance, and an incredible camera.
+        iPhone 15  Designed to impress. Built to perform.
+</P>
+    <h3>prise: 2200$</h3>
+    <button> buy now</button>  
+    </div>
+    </div>
+     <div class="card">
+    <img src="data:image/jpeg;base64,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" alt="">
+    <div class="card-content">
+    <h2>iphone 16 </h2>
+    <P> iPhone 16 Elegant design, powerful performance, and an incredible camera.
+        iPhone 16  Designed to impress. Built to perform.
+</P>
+    <h3>prise: 2500$</h3>
+    <button> buy now</button>  
+    </div>
+    </div>
+     <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS7Cgi_FC1Y6lKylG3m5M_BBA7kves4GqVL5WX_hndew&s" alt="">
+    <div class="card-content">
+    <h2>iphone 17promax </h2> 
+<P>      iPhone 17 Pro Max  Ultimate performance, stunning design, and next-level camera technology.
+         iPhone 17 Pro Max  Pro power. Pro style. Beyond expectations.
+
+</P>
+    <h3>prise: 2800$</h3>
+    <button> buy now</button>  
+    </div>
+    </div>
+     <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZeKtBLEhu8ravJj0iisyRBPybs-n0Kb6qKnj5WtjyoQ&s=10" alt="">
+    <div class="card-content">
+    <h2>iphone 18 </h2>    
+<P>    iPhone 18  The next generation of innovation, power, and style.
+       Experience cutting-edge technology, a stunning design, and an extraordinary smartphone experience.
+</P>
+    <h3>prise: 3800$</h3>
+    <button> buy now</button>  
+    </div>
+    </div>
+    <div class="card">
+    <img src="data:image/jpeg;base64,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" alt="">
+    <div class="card-content">
+    <h2>iphone 18promax </h2>    
+<P>      iPhone 18  Experience the future with powerful performance, stunning design, and advanced technology.
+         iPhone 18  Future-ready. Powerful. Extraordinary.
+</P>
+    <h3>prise: 4000$</h3>
+    <button> buy now</button>  
+    </div>
+    </div>
+    <div class="card">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSD3-rkt5ZJWZSNB6dWH2W6-alOsH_B1kHa0nK2Iafoiu2IqCICcbPRXQx-EUzzejyV875rEfQ5Q0Wgw-RA6GoRGLnYw6Y2P8s8ht1xYJCdOHpwRTVwuUfgjMmB0r6IVKibvnXL_rI&usqp=CAc" alt="">
+    <div class="card-content">
+    <h2>Apple Watch Series 11 </h2>       
+<P>
+    Apple Watch Series 11 is a stylish and powerful smartwatch designed 
+    for everyday life. It combines a sleek design with advanced health, 
+    fitness, and safety features
+</P>
+    <h3>prise: 400$</h3>
+    <button> buy now</button> 
+    </div>
+    </div>
+    <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpEcwGhJbtHcF19c5KOpWj8nwzCljPvOi3S5krvsyUdA&s=10" alt="">
+    <div class="card-content">
+    <h2> Apple Watch SE 2nd Generation </h2>       
+<P>  The Apple Watch SE (2nd Generation) is a stylish and affordable smartwatch with useful health, 
+    fitness, and safety features. It offers a smooth performance, a bright display, and seamless 
+    connectivity with the iPhone.
+
+</P>
+    <h3>prise: 450$</h3>
+    <button> buy now</button> 
+    </div>
+    </div>
+<div class="card">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTWwuMUq3mjYMLru4SXkweu-rIhp2Bw0sKHanQhYHY7M_zrzlaOXLmldU-rfEVXwzzNXdaPCS8G36nPRJl_BZx0Bko0QqCi7r-xloxFaBs1irF6mb6gw2YB2Or0bolTT_hnYr3pwXMZDsk&usqp=CAc" alt="">
+    <div class="card-content">
+    <h2> 1. Apple Watch Ultra </h2>       
+<P> Apple Watch Ultra is a powerful and premium smartwatch designed for adventure,
+   fitness, and everyday use. It features a strong design, bright display, advanced 
+   fitness tracking, and excellent durability. With its stylish look and powerful 
+   performance, 
+</P>
+    <h3>prise: 599$</h3>
+    <button> buy now</button>
+    </div>
+    </div> 
+ <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQaeC_XaVR7IlO5JlsmpDhsIgygd1OGBJ-LmQiTAlAxja7Ha3p3MwsPbU7iei6HuicUyiMuJLTHy8IzueaeNKCYMDuN7_cpeofxC-4ybu4nHrIqs09OuMOgd8xuqHhWFprdqAU89gI&usqp=CAc" alt="">
+    <div class="card-content">
+    <h2> Apple Watch Ultra 2 </h2>       
+<P>  
+Apple Watch Ultra 2 is a powerful and premium smartwatch built for adventure, fitness, and everyday life. 
+It features a rugged design, a bright display, fast performance, and advanced health and fitness features. 
+Its durable build and modern design make it an excellent choice for active users.
+m</P>
+    <h3>prise: 700$</h3>
+    <button> buy now</button> 
+    </div>
+    </div>
+<div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgah2Mt19Z8h6nVJtsE-skJraUzpntHjdOEy7-51irQg&s" alt="">
+    <div class="card-content">
+    <h2> Apple Watch SE 3 </h2>       
+<P>  
+Apple Watch SE 3 is a stylish and powerful smartwatch designed  
+for everyday life. It offers a bright display, fitness and health 
+features, smart notifications, and smooth performance. With its 
+modern design and comfortable fit,</P>
+    <h3>prise: 800$</h3>
+    <button> buy now</button> 
+    </div>
+    </div>
+
+<div class="card">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQDKP265q7TDb3L4m6W8ATmoVBCyN6kaCkOugOeQtdW447TMP8pRpsU4fZygQiUN74JzpqtNEKHjON-j-cbTDlEGSoMwnFyEPOby3eL1VKO0l6yINMpt5xFOKwx_6grWSSSBTXvUZY&usqp=CAc" alt="">
+    <div class="card-content">
+    <h2> Apple Watch Ultra 3</h2>       
+<P>  
+Apple Watch Ultra 3 is a premium and rugged smartwatch built 
+for adventure and performance. It features a durable design, 
+a large bright display, advanced fitness and health features, 
+and powerful battery life
+</P>
+    <h3>prise: 999$</h3>
+    <button> buy now</button> 
+    </div>
+    </div>
+    <div class="card">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSBrU1L1U9iiYTSZsNEPrgDYOI-hA09gmvE8AQe_vvvy87cN6qnLzl2TPe6RJjCdoICVeifjyvwL0e22PuwJlsaO8ERd_hw9QjacsCFqQ1sRQIv9VfLLNLHYwCvj67oovkzUMRvL0sTHVo&usqp=CAc" alt="">
+    <div class="card-content">
+    <h2> MacBook Pro 16-inch (M4 Max)  </h2>       
+<P>  
+    Good Laptop: Powerful and premium laptop for professional work.
+RAM/Storage: Up to 128GB RAM, 8TB storage.
+</P>
+    <h3>prise: 3499$</h3>
+    <button> buy now</button> 
+    </div>
+    </div>
+    <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnyu0X2SmPQp-B6fKsv-LeNvPrDY5BxcpbqXCwHAShlw&s=10" alt="">
+    <div class="card-content">
+    <h2> MacBook Pro 14-inch (M4 Max)</h2>       
+<P>  
+Good Laptop: Fast, powerful, and perfect for coding and editing.
+RAM/Storage: Up to 128GB RAM, 8TB storage.
+</P>
+    <h3>prise: 3199$</h3>
+    <button> buy now</button> 
+    </div>
+    </div>
+    <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoUJMLPTNA3By_X477Z7DVd9qeXrV99SxXp4vXEG-LcQ&s=10" alt="">
+    <div class="card-content">
+    <h2>. MacBook Pro 16-inch (M3 Max)</h2>       
+<P> 
+    Good Laptop: Excellent performance with a beautiful large display.
+RAM/Storage: Up to 128GB RAM, 8TB storage.
+ 
+
+</P>
+    <h3>prise: 3499$</h3>
+    <button> buy now</button> 
+    </div>
+    </div>
+    <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVRJJ9uJO64d0f2rzeIWU0zkM30fDOIo8QVgQojQsP6g&s=10" alt="">
+    <div class="card-content">
+    <h2> MacBook Pro 14-inch (M3 Max) </h2>       
+<P>  
+
+</P>
+    <h3>prise: 3299$</h3>
+    <button> buy now</button> 
+    </div>
+    </div>
+    <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB7WO5ju40VV9MtxfnNHkPAbqRrkMkRrTM-Hzlgd94uA&s=10" alt="">
+    <div class="card-content">
+    <h2> 5. MacBook Air 15-inch (M4)</h2>       
+<P>  
+Good Laptop: Slim, lightweight, and great for everyday work.
+RAM/Storage: Up to 32GB RAM, 2TB storage
+</P>
+    <h3>prise: 1499$</h3>
+    <button> buy now</button> 
+    </div>
+    </div>
+    <div class="card">
+    <img src="https://dam.which.co.uk/IC19565-0842-00-front-800x600.jpg" alt="">
+    <div class="card-content">
+    <h2>  MacBook Air 13-inch (M4)</h2>       
+<P>  
+Thin, light, and powerful, making it a great choice for students, 
+developers, and everyday users.
+</P>
+    <h3>prise: 999$</h3>
+    <button> buy now</button> 
+    </div>
+    </div>
+    </div>
+    <footer class="footer">
+
+    <h2>My Contact</h2>
+
+    <p>
+        Gmail:
+        <a href="mailto:yourname@gmail.com">
+            yourname@gmail.com
+        </a>
+    </p>
+
+    <p>
+        Contact:
+        <a href="tel:+923001234567">
+            +92 300 1234567
+        </a>
+    </p>
+   </footer>
+   </div>
+    </body>
+    </html>
