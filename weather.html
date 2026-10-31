@@ -1,0 +1,1580 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WeatherVista - Global Weather</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    color:white;
+    min-height:100vh;
+    background:#071522;
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+
+    background-image:
+    linear-gradient(
+        rgba(0,15,30,.55),
+        rgba(0,15,30,.75)
+    ),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=85");
+
+    background-size:cover;
+    background-position:center;
+
+    transition:background-image .7s ease;
+}
+
+/* ================= MAIN ================= */
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+    padding:25px 0 50px;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:70px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#6bdcff;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.nav-pill{
+    padding:10px 16px;
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:50px;
+
+    backdrop-filter:blur(12px);
+
+    font-size:13px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+}
+
+.small-title{
+    color:#9ee7ff;
+    letter-spacing:3px;
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:clamp(45px,7vw,85px);
+    line-height:.95;
+
+    text-shadow:
+    0 10px 40px rgba(0,0,0,.7);
+}
+
+.hero p{
+    margin:22px auto;
+
+    max-width:700px;
+
+    color:#d8eaf3;
+
+    line-height:1.6;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+
+    display:flex;
+
+    max-width:760px;
+
+    margin:28px auto;
+
+    padding:7px;
+
+    background:rgba(255,255,255,.13);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.search-box input{
+
+    flex:1;
+
+    min-width:0;
+
+    padding:16px 18px;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:16px;
+}
+
+.search-box input::placeholder{
+    color:#c9dce5;
+}
+
+.search-box button{
+
+    border:none;
+
+    padding:0 25px;
+
+    border-radius:14px;
+
+    background:white;
+
+    color:#082238;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.search-box button:hover{
+    transform:translateY(-2px);
+}
+
+.search-hint{
+
+    font-size:12px;
+
+    color:#bcd0db;
+}
+
+/* ================= STATUS ================= */
+
+.status{
+
+    text-align:center;
+
+    min-height:25px;
+
+    margin:20px 0;
+}
+
+/* ================= WEATHER ================= */
+
+.weather-container{
+
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr;
+
+    gap:18px;
+}
+
+.glass{
+
+    background:rgba(5,25,40,.48);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-radius:28px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,.35);
+}
+
+/* Main weather */
+
+.main-weather{
+
+    padding:30px;
+
+    min-height:340px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+}
+
+.location{
+
+    font-size:24px;
+
+    font-weight:bold;
+}
+
+.date{
+
+    margin-top:7px;
+
+    color:#c1d7e2;
+
+    font-size:13px;
+}
+
+.temperature-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.weather-icon{
+
+    font-size:80px;
+
+    filter:drop-shadow(
+        0 8px 15px rgba(0,0,0,.4)
+    );
+}
+
+.temperature{
+
+    font-size:80px;
+
+    font-weight:900;
+
+    line-height:1;
+}
+
+.degree{
+
+    font-size:22px;
+
+    color:#cce0e9;
+}
+
+.condition{
+
+    margin-top:8px;
+
+    font-size:20px;
+}
+
+.feels{
+
+    margin-top:6px;
+
+    color:#bdd2dc;
+
+    font-size:13px;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+
+    padding:23px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+}
+
+.stat{
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.label{
+
+    color:#aac2cf;
+
+    font-size:11px;
+
+    margin-bottom:8px;
+}
+
+.value{
+
+    font-size:19px;
+
+    font-weight:bold;
+}
+
+/* ================= DESTINATIONS ================= */
+
+.section-title{
+
+    margin:45px 0 16px;
+
+    font-size:22px;
+}
+
+.destinations{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:16px;
+}
+
+.destination{
+
+    height:250px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    cursor:pointer;
+
+    background-size:cover;
+
+    background-position:center;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    box-shadow:
+    0 15px 50px rgba(0,0,0,.4);
+
+    transition:.3s;
+}
+
+.destination:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.6);
+}
+
+.destination::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        transparent 20%,
+        rgba(0,0,0,.85)
+    );
+}
+
+.destination-info{
+
+    position:absolute;
+
+    z-index:2;
+
+    left:20px;
+
+    right:20px;
+
+    bottom:18px;
+}
+
+.destination-info h3{
+
+    font-size:25px;
+
+    margin-bottom:6px;
+}
+
+.destination-info p{
+
+    font-size:12px;
+
+    color:#d6e5eb;
+
+}
+
+/* ================= COUNTRY IMAGES ================= */
+
+/* USA */
+
+.usa{
+
+background-image:
+
+url(
+"https://images.pexels.com/photos/30904486/pexels-photo-30904486.jpeg?auto=compress&cs=tinysrgb&w=1600"
+);
+
+}
+
+/* South Africa */
+
+.south-africa{
+
+background-image:
+
+url(
+"https://images.unsplash.com/photo-1645265436876-2bf18b532a19?auto=format&fit=crop&w=1600&q=85"
+);
+
+}
+
+/* Russia */
+
+.russia{
+
+background-image:
+
+url(
+"https://images.unsplash.com/photo-1654307386089-c7d2dbc3b6e7?auto=format&fit=crop&w=1600&q=85"
+);
+
+}
+
+/* Canada */
+
+.canada{
+
+background-image:
+
+url(
+"https://images.unsplash.com/photo-1664799556377-d55bbe79c3dd?auto=format&fit=crop&w=1600&q=85"
+);
+
+}
+
+/* Japan */
+
+.japan{
+
+background-image:
+
+url(
+"https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1600&q=85"
+);
+
+}
+
+/* Pakistan */
+
+.pakistan{
+
+background-image:
+
+url(
+"https://images.unsplash.com/photo-1586803264438-9f1f0e7a6c1d?auto=format&fit=crop&w=1600&q=85"
+);
+
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:#9fb6c2;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:800px){
+
+    .weather-container{
+
+        grid-template-columns:1fr;
+    }
+
+    .destinations{
+
+        grid-template-columns:
+        1fr 1fr;
+    }
+
+}
+
+@media(max-width:550px){
+
+    .container{
+
+        width:94%;
+    }
+
+    nav{
+
+        margin-bottom:45px;
+    }
+
+    .nav-buttons{
+
+        display:none;
+    }
+
+    .destinations{
+
+        grid-template-columns:1fr;
+    }
+
+    .temperature{
+
+        font-size:58px;
+    }
+
+    .weather-icon{
+
+        font-size:60px;
+    }
+
+    .search-box button{
+
+        padding:0 16px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="background" id="background"></div>
+
+
+<div class="container">
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+Weather<span>Vista</span> ☁
+</div>
+
+<div class="nav-buttons">
+
+<div class="nav-pill">
+🌍 Global
+</div>
+
+<div class="nav-pill">
+Live Weather
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="small-title">
+EXPLORE THE WORLD'S WEATHER
+</div>
+
+<h1>
+Feel the weather.<br>
+See the world.
+</h1>
+
+<p>
+
+Search any city or country and get
+live temperature, humidity, wind,
+pressure and weather conditions.
+
+</p>
+
+
+
+<!-- SEARCH -->
+
+<form class="search-box" id="searchForm">
+
+<input
+
+id="searchInput"
+
+type="text"
+
+placeholder="Search USA, South Africa, Russia, Japan..."
+
+autocomplete="off"
+
+>
+
+<button type="submit">
+
+Search
+
+</button>
+
+</form>
+
+
+<div class="search-hint">
+
+Try: USA • South Africa • Russia • Japan • Pakistan • Canada
+
+</div>
+
+</section>
+
+
+
+<div class="status" id="status"></div>
+
+
+
+<!-- WEATHER RESULT -->
+
+<section
+class="weather-container"
+id="weatherContainer"
+style="display:none;"
+>
+
+
+<!-- MAIN WEATHER -->
+
+<div class="glass main-weather">
+
+<div>
+
+<div
+class="location"
+id="location"
+>
+—
+</div>
+
+<div
+class="date"
+id="date"
+>
+—
+</div>
+
+</div>
+
+
+
+<div class="temperature-row">
+
+<div
+class="weather-icon"
+id="weatherIcon"
+>
+🌤️
+</div>
+
+
+<div>
+
+<div class="temperature">
+
+<span id="temperature">
+--
+</span>
+
+<span class="degree">
+°C
+</span>
+
+</div>
+
+
+<div
+class="condition"
+id="condition"
+>
+—
+</div>
+
+
+<div class="feels">
+
+Feels like
+
+<span id="feels">
+--
+</span>
+
+°C
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- STATS -->
+
+<div class="glass stats">
+
+
+<div class="stat">
+
+<div class="label">
+💧 HUMIDITY
+</div>
+
+<div
+class="value"
+id="humidity"
+>
+--
+</div>
+
+</div>
+
+
+
+<div class="stat">
+
+<div class="label">
+💨 WIND
+</div>
+
+<div
+class="value"
+id="wind"
+>
+--
+</div>
+
+</div>
+
+
+
+<div class="stat">
+
+<div class="label">
+🌡️ PRESSURE
+</div>
+
+<div
+class="value"
+id="pressure"
+>
+--
+</div>
+
+</div>
+
+
+
+<div class="stat">
+
+<div class="label">
+👁️ VISIBILITY
+</div>
+
+<div
+class="value"
+id="visibility"
+>
+--
+</div>
+
+</div>
+
+
+
+<div class="stat">
+
+<div class="label">
+☀️ UV INDEX
+</div>
+
+<div
+class="value"
+id="uv"
+>
+--
+</div>
+
+</div>
+
+
+
+<div class="stat">
+
+<div class="label">
+🌧️ RAIN
+</div>
+
+<div
+class="value"
+id="rain"
+>
+--
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- DESTINATIONS -->
+
+<h2 class="section-title">
+
+🌎 Explore Weather Destinations
+
+</h2>
+
+
+<section class="destinations">
+
+
+
+<!-- USA -->
+
+<div
+class="destination usa"
+data-place="United States"
+>
+
+<div class="destination-info">
+
+<h3>
+🇺🇸 USA
+</h3>
+
+<p>
+American mountains, clouds and dramatic skies
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- SOUTH AFRICA -->
+
+<div
+class="destination south-africa"
+data-place="Cape Town"
+>
+
+<div class="destination-info">
+
+<h3>
+🇿🇦 South Africa
+</h3>
+
+<p>
+Cape Town, mountains and ocean weather
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- RUSSIA -->
+
+<div
+class="destination russia"
+data-place="Russia"
+>
+
+<div class="destination-info">
+
+<h3>
+🇷🇺 Russia
+</h3>
+
+<p>
+Snowy landscapes and winter atmosphere
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- CANADA -->
+
+<div
+class="destination canada"
+data-place="Canada"
+>
+
+<div class="destination-info">
+
+<h3>
+🇨🇦 Canada
+</h3>
+
+<p>
+Cold mountains and beautiful winter scenery
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- JAPAN -->
+
+<div
+class="destination japan"
+data-place="Japan"
+>
+
+<div class="destination-info">
+
+<h3>
+🇯🇵 Japan
+</h3>
+
+<p>
+Beautiful Japanese seasonal weather
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- PAKISTAN -->
+
+<div
+class="destination pakistan"
+data-place="Pakistan"
+>
+
+<div class="destination-info">
+
+<h3>
+🇵🇰 Pakistan
+</h3>
+
+<p>
+Mountains, rivers and changing weather
+</p>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+
+<footer>
+
+WeatherVista © 2026
+
+<br>
+
+Live weather data powered by Open-Meteo
+
+</footer>
+
+
+</div>
+
+
+
+<script>
+
+
+/* ================= WEATHER CODES ================= */
+
+const weatherCodes = {
+
+0:["Clear Sky","☀️"],
+
+1:["Mainly Clear","🌤️"],
+
+2:["Partly Cloudy","⛅"],
+
+3:["Overcast","☁️"],
+
+45:["Fog","🌫️"],
+
+48:["Fog","🌫️"],
+
+51:["Light Drizzle","🌦️"],
+
+53:["Drizzle","🌦️"],
+
+55:["Heavy Drizzle","🌧️"],
+
+61:["Light Rain","🌦️"],
+
+63:["Rain","🌧️"],
+
+65:["Heavy Rain","🌧️"],
+
+71:["Light Snow","🌨️"],
+
+73:["Snow","❄️"],
+
+75:["Heavy Snow","❄️"],
+
+80:["Rain Showers","🌦️"],
+
+81:["Rain Showers","🌧️"],
+
+82:["Heavy Rain Showers","⛈️"],
+
+85:["Snow Showers","🌨️"],
+
+86:["Heavy Snow Showers","❄️"],
+
+95:["Thunderstorm","⛈️"],
+
+96:["Thunderstorm + Hail","⛈️"],
+
+99:["Thunderstorm + Hail","⛈️"]
+
+};
+
+
+
+/* ================= BACKGROUNDS ================= */
+
+const backgrounds = {
+
+"usa":
+"url('https://images.pexels.com/photos/30904486/pexels-photo-30904486.jpeg?auto=compress&cs=tinysrgb&w=2000')",
+
+"united states":
+"url('https://images.pexels.com/photos/30904486/pexels-photo-30904486.jpeg?auto=compress&cs=tinysrgb&w=2000')",
+
+"south africa":
+"url('https://images.unsplash.com/photo-1645265436876-2bf18b532a19?auto=format&fit=crop&w=2000&q=85')",
+
+"cape town":
+"url('https://images.unsplash.com/photo-1645265436876-2bf18b532a19?auto=format&fit=crop&w=2000&q=85')",
+
+"russia":
+"url('https://images.unsplash.com/photo-1654307386089-c7d2dbc3b6e7?auto=format&fit=crop&w=2000&q=85')",
+
+"canada":
+"url('https://images.unsplash.com/photo-1664799556377-d55bbe79c3dd?auto=format&fit=crop&w=2000&q=85')",
+
+"japan":
+"url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=2000&q=85')",
+
+"pakistan":
+"url('https://images.unsplash.com/photo-1586803264438-9f1f0e7a6c1d?auto=format&fit=crop&w=2000&q=85')"
+
+};
+
+
+
+/* ================= ELEMENTS ================= */
+
+const searchForm =
+document.getElementById("searchForm");
+
+const searchInput =
+document.getElementById("searchInput");
+
+const status =
+document.getElementById("status");
+
+const weatherContainer =
+document.getElementById("weatherContainer");
+
+const background =
+document.getElementById("background");
+
+
+
+/* ================= CHANGE BACKGROUND ================= */
+
+function changeBackground(place){
+
+    let name =
+    place.toLowerCase();
+
+    let selected = null;
+
+    for(let key in backgrounds){
+
+        if(
+            name.includes(key) ||
+            key.includes(name)
+        ){
+
+            selected =
+            backgrounds[key];
+
+            break;
+        }
+
+    }
+
+    if(!selected){
+
+        selected =
+        "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=85')";
+
+    }
+
+    background.style.backgroundImage =
+
+    `linear-gradient(
+        rgba(0,15,30,.55),
+        rgba(0,15,30,.75)
+    ),${selected}`;
+
+}
+
+
+
+/* ================= GET WEATHER ================= */
+
+async function getWeather(place){
+
+    status.innerText =
+    "Searching weather for " + place + "...";
+
+    weatherContainer.style.display =
+    "none";
+
+    changeBackground(place);
+
+
+    try{
+
+        /* LOCATION SEARCH */
+
+        const geoResponse =
+
+        await fetch(
+
+        `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(place)}&count=5&language=en&format=json`
+
+        );
+
+
+        const geo =
+        await geoResponse.json();
+
+
+        if(
+            !geo.results ||
+            geo.results.length === 0
+        ){
+
+            throw new Error(
+            "Location not found. Try another city or country."
+            );
+
+        }
+
+
+        const location =
+        geo.results[0];
+
+
+        /* WEATHER API */
+
+        const params =
+        new URLSearchParams({
+
+            latitude:
+            location.latitude,
+
+            longitude:
+            location.longitude,
+
+            current:
+            "temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,rain,weather_code,surface_pressure,wind_speed_10m",
+
+            hourly:
+            "visibility",
+
+            daily:
+            "uv_index_max",
+
+            timezone:
+            "auto",
+
+            forecast_days:
+            "1"
+
+        });
+
+
+        const weatherResponse =
+
+        await fetch(
+
+        "https://api.open-meteo.com/v1/forecast?"
+        + params
+
+        );
+
+
+        const weather =
+        await weatherResponse.json();
+
+
+        const current =
+        weather.current;
+
+
+        /* WEATHER CONDITION */
+
+        const condition =
+        weatherCodes[
+            current.weather_code
+        ] || ["Weather","🌍"];
+
+
+
+        /* LOCATION */
+
+        document.getElementById(
+            "location"
+        ).innerText =
+
+        [
+            location.name,
+            location.admin1,
+            location.country
+
+        ]
+        .filter(Boolean)
+        .filter(
+            (value,index,array)=>
+            array.indexOf(value)===index
+        )
+        .join(", ");
+
+
+
+        /* DATE */
+
+        document.getElementById(
+            "date"
+        ).innerText =
+
+        new Date().toLocaleString(
+            [],
+            {
+                weekday:"long",
+                year:"numeric",
+                month:"long",
+                day:"numeric",
+                hour:"2-digit",
+                minute:"2-digit"
+            }
+        );
+
+
+
+        /* ICON */
+
+        document.getElementById(
+            "weatherIcon"
+        ).innerText =
+        condition[1];
+
+
+
+        /* TEMPERATURE */
+
+        document.getElementById(
+            "temperature"
+        ).innerText =
+
+        Math.round(
+            current.temperature_2m
+        );
+
+
+
+        /* CONDITION */
+
+        document.getElementById(
+            "condition"
+        ).innerText =
+        condition[0];
+
+
+
+        /* FEELS LIKE */
+
+        document.getElementById(
+            "feels"
+        ).innerText =
+
+        Math.round(
+            current.apparent_temperature
+        );
+
+
+
+        /* HUMIDITY */
+
+        document.getElementById(
+            "humidity"
+        ).innerText =
+
+        Math.round(
+            current.relative_humidity_2m
+        ) + "%";
+
+
+
+        /* WIND */
+
+        document.getElementById(
+            "wind"
+        ).innerText =
+
+        Math.round(
+            current.wind_speed_10m
+        ) + " km/h";
+
+
+
+        /* PRESSURE */
+
+        document.getElementById(
+            "pressure"
+        ).innerText =
+
+        Math.round(
+            current.surface_pressure
+        ) + " hPa";
+
+
+
+        /* VISIBILITY */
+
+        if(
+            weather.hourly &&
+            weather.hourly.visibility
+        ){
+
+            document.getElementById(
+                "visibility"
+            ).innerText =
+
+            (
+                weather.hourly.visibility[0]
+                /1000
+            ).toFixed(1)
+            + " km";
+
+        }
+
+
+
+        /* UV */
+
+        if(
+            weather.daily &&
+            weather.daily.uv_index_max
+        ){
+
+            document.getElementById(
+                "uv"
+            ).innerText =
+
+            Number(
+                weather.daily.uv_index_max[0]
+            ).toFixed(1);
+
+        }
+
+
+
+        /* RAIN */
+
+        document.getElementById(
+            "rain"
+        ).innerText =
+
+        Number(
+            current.rain ||
+            current.precipitation ||
+            0
+        ).toFixed(1)
+        + " mm";
+
+
+
+        /* SHOW */
+
+        weatherContainer.style.display =
+        "grid";
+
+        status.innerText = "";
+
+
+
+    }catch(error){
+
+        status.innerText =
+        "⚠️ " + error.message;
+
+    }
+
+}
+
+
+
+/* ================= SEARCH ================= */
+
+searchForm.addEventListener(
+"submit",
+function(event){
+
+    event.preventDefault();
+
+    const place =
+    searchInput.value.trim();
+
+    if(place){
+
+        getWeather(place);
+
+    }
+
+});
+
+
+
+/* ================= COUNTRY CARDS ================= */
+
+document
+.querySelectorAll(".destination")
+.forEach(
+
+    card => {
+
+        card.addEventListener(
+        "click",
+        function(){
+
+            const place =
+            this.dataset.place;
+
+            searchInput.value =
+            place;
+
+            getWeather(place);
+
+            window.scrollTo({
+
+                top:250,
+
+                behavior:"smooth"
+
+            });
+
+        }
+        );
+
+    }
+
+);
+
+
+
+/* ================= DEFAULT ================= */
+
+/* Website opens with USA */
+
+getWeather("United States");
+
+
+</script>
+
+</body>
+</html>
+```
